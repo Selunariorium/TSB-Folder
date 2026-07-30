@@ -307,7 +307,7 @@ function Misc.Glue(Root, Offset, Toggle, UseDesync, useShiftlock, Yield, Timeout
 	
 	task.spawn(function()
 		repeat RunService.RenderStepped:Wait()
-			if os.clock() - start >= Timeout then
+			if root and root.Parent and root.Parent.Humanoid and root.Parent.Humanoid.Health > 0 and os.clock() - start >= Timeout then
 				Misc.StopGlue()
 				break
 			end
